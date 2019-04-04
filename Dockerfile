@@ -3,4 +3,4 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
 COPY nginx.conf /etc/nginx/nginx.conf
-CMD ["nginx"]
+CMD ["nginx", "-g","daemon off;"]
