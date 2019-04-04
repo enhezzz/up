@@ -14,7 +14,6 @@ export default new Vuex.Store({
       },
       mutations: {
         add (state, itemInfo) {
-          // console.log(state)
           if (itemInfo.goods_id in state.c) {
             state.c[itemInfo.goods_id]['num']++
           } else {
@@ -24,8 +23,6 @@ export default new Vuex.Store({
             }
           }
           state.c = { ...state.c }
-          // console.log(state)
-          // console.log(state)
         },
         sub (state, itemInfo) {
           if (itemInfo.goods_id in state.c) {

@@ -242,7 +242,6 @@ export default {
       }).data.find(item=> {
         return `${item.goods_id}` === goodInfo.goods_id
       })
-      // console.log(temp)
 
       return this.$store.state.cart.c[goodInfo.goods_id]['num'] >= temp.remaining_stock
     },
@@ -271,7 +270,6 @@ export default {
         lent_name: this.$store.state.username,
         lent_code: this.$store.state.workCode
       })
-      console.log(response)
       if(response.data.state === 0) {
         this.$notify({
           message: response.data.msg,

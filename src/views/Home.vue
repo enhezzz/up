@@ -56,7 +56,6 @@ export default {
     async init() {
       // this.$loading.start()
       let response =  await get_publish_announce()
-      console.log(response)
       this.notifications = response.data.data.data
       // this.$loading.close()
     }

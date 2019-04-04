@@ -168,7 +168,6 @@ export default {
       let response = await get_goods_list_by_assets({
         assets_id: 2
       });
-      console.log(response);
       this.originData = response.data.data;
       this.data = JSON.parse(JSON.stringify(response.data.data));
       this.$loading.close();
@@ -206,8 +205,6 @@ export default {
           status: "danger"
         });
       }
-
-      console.log(response);
       this.$loading.close();
       this.init("数据重新加载中 ");
     },
@@ -215,7 +212,6 @@ export default {
       this.maskActived = false;
     },
     search(keyword) {
-      console.log(keyword);
       let _k = keyword.trim();
       this.currentIndex = 0;
       if (_k === "") {
