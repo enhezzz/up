@@ -11,10 +11,10 @@ export default {
   },
   methods: {
     _login() {
-      dd.ready( function () {
+      dd.ready(  ()=> {
         dd.runtime.permission.requestAuthCode({
-          corpId: "ding9385b4aebd9af88635c2f4657eb6378f",
-          onSuccess: function(result) {
+          corpId: "dingb38409443cbae4b035c2f4657eb6378f",
+          onSuccess: (result)=> {
             login({code: result.code})
             .then(res => {
               console.log(res)
