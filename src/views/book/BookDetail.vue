@@ -75,7 +75,6 @@ export default {
     let response = await get_book_detail_info(goods_id)
     this.goods_info = response[0].data.data.data
     this.goods_lent_info = response[1].data.data.data
-    console.log(response)
     this.$loading.close()
   }
 }

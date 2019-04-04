@@ -96,15 +96,8 @@ export default {
       this.$loading.start(tip);
       let response = await get_goods_list_by_assets({
         assets_id: 1
-      }).catch(e => {
-        console.log(e);
-      });
-      // if(response)
-      // console.log(response)
-
-      // let arr = response.data.data.data.reverse();
+      })
       let arr = response.data.data.data;
-      console.log(arr)
       if (response.data.state === 0) {
         this.originUmbrellas = arr;
         this.umbrellas = JSON.parse(JSON.stringify(arr));
@@ -166,7 +159,6 @@ export default {
           status: "danger"
         });
       }
-      console.log(response);
       this.$loading.close();
       this.init("数据重新加载中");
     },

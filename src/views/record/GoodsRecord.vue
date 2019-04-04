@@ -67,7 +67,6 @@ export default {
         status: "danger"
       });
     }
-    console.log(response);
     this.$loading.close();
   },
 

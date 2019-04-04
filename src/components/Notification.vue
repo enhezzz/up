@@ -50,9 +50,6 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log(this.notifications.length);
-  },
   beforeDestroy() {
     clearInterval(this.interval);
     clearTimeout(this.timeout);

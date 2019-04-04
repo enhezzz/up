@@ -80,17 +80,11 @@ export default {
       ballParent.addEventListener("transitionend",transitionendListener)
       ballParent.classList.add('ballParent')
       let ball = document.createElement('div')
-      //   ballParent.style.transform = `translateX(0)`
-      //   ball.style.transform = `translateY(0)`
-      //   ballParent.style.transition = "all 1s"
-      //   ball.style.transition = "all 1s"
       ball.classList.add('ball')
       ballParent.appendChild(ball)
       target.appendChild(ballParent)
       let parentHorizontal = left - cartLeft
       let ballVertical = cartTop - top
-      //   console.log(cartTop, top)
-      //   console.log(parentHorizontal,ballVertical);
       ballParent.style.zIndex = 111
       setTimeout(() => {
         ballParent.style.transform = `translateX(${-parentHorizontal}px)`
