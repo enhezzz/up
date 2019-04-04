@@ -1,4 +1,4 @@
-﻿image: hub.dianchu.cc/library/base-node:1.0.1
+image: hub.dianchu.cc/library/base-node:1.0.1
 
 variables:
   DOCKER_DRIVER: overlay
