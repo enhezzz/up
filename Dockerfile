@@ -1,8 +1,6 @@
-FROM node:alpine
+FROM nginx:1.13.7
 RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
-ENV NODE_ENV=production
-ENV HOST 0.0.0.0
-EXPOSE 3000
-CMD ["npm", "start"]
+COPY nginx.conf /etc/nginx/nginx.conf
+CMD ["nginx", "-g","daemon on;"]
