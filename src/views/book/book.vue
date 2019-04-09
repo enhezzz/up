@@ -166,7 +166,9 @@ export default {
     async init(tip) {
       this.$loading.start(tip);
       let response = await get_goods_list_by_assets({
-        assets_id: 2
+        assets_id: 2,
+        floor_name: this.$store.state.floorName,
+        has_stock: true
       });
       this.originData = response.data.data;
       this.data = JSON.parse(JSON.stringify(response.data.data));

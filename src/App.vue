@@ -23,7 +23,9 @@ export default {
                   this.$store.commit("updateUsername", res.data.data.name);
                   this.$store.commit("updateWorkCode", res.data.data.job_num);
                   this.$store.commit("updateAvatar", res.data.data.avatar);
-                  this.$store.commit("updateAvatar", res.data.data.dept_name);
+                  this.$store.commit("updateDepartment", res.data.data.dept_name);
+                  this.$store.commit("updateFloorName", res.data.data.floor_name);
+                  this.$store.commit("updateFloorId", res.data.data.floor);
                   break;
               }
             });

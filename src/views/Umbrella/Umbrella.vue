@@ -95,7 +95,9 @@ export default {
     async init(tip) {
       this.$loading.start(tip);
       let response = await get_goods_list_by_assets({
-        assets_id: 1
+        assets_id: 1,
+        floor_name: this.$store.state.floorName,
+        has_stock: true
       })
       let arr = response.data.data.data;
       if (response.data.state === 0) {

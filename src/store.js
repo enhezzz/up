@@ -41,7 +41,8 @@ export default new Vuex.Store({
     workCode: "2018000",
     floorName: "",
     department: "研发部",
-    avatar: ""
+    avatar: "",
+    floorId: ""
   },
   mutations: {
     updateUsername(state,username) {
@@ -55,6 +56,12 @@ export default new Vuex.Store({
     },
     updateDepartment(state, department) {
       state.department = department
+    },
+    updateFloorName(state, floorName) {
+      state.floorName = floorName
+    },
+    updateFloorId(state, floorId) {
+      state.floorId = floorId
     }
   },
   actions: {
