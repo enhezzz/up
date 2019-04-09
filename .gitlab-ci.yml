@@ -6,7 +6,7 @@ variables:
   DC_REGISTRY_USER: gitlab_ci
   DC_REGISTRY_PASS: Gitlab_c1
   FRONT_NAME: dc-borrow-platform-front
-  BUILD_TAG: 0.1.0
+  BUILD_TAG: 0.1.1
 
 stages:
   - build_file
