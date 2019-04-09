@@ -10,7 +10,7 @@
           {{ username }}
         </div>
         <div class="item department">
-          2f {{ department }}
+          {{floorName}}·{{ department }}
         </div>
       </div>
     </div>
@@ -111,6 +111,9 @@ export default {
     },
     department() {
       return this.$store.state.department
+    },
+    floorName() {
+      return this.$store.state.floorName
     }
   }
 }
