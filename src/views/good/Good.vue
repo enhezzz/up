@@ -191,6 +191,7 @@ export default {
       has_stock: true,
       // floor: this.$store.state.floorId
     })
+    alert(response.data.data)
     this.originData = response.data.data
     this.data = JSON.parse(JSON.stringify(response.data.data))
     this.$loading.close()
