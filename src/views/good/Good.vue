@@ -188,7 +188,8 @@ export default {
     let response = await get_goods_list_by_assets({
       assets_id: 5,
       floor_name: this.$store.state.floorName,
-      has_stock: true
+      has_stock: true,
+      floor: this.$store.state.floorId
     })
     this.originData = response.data.data
     this.data = JSON.parse(JSON.stringify(response.data.data))
