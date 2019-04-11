@@ -191,7 +191,11 @@ export default {
       has_stock: true,
       // floor: this.$store.state.floorId
     })
-    alert(response.data.data)
+    this.$notify({
+    message: JSON.stringify(response.data.data),
+    duration: 0,
+    status: "danger"
+  })
     this.originData = response.data.data
     this.data = JSON.parse(JSON.stringify(response.data.data))
     this.$loading.close()
