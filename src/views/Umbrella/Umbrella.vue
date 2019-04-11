@@ -96,9 +96,9 @@ export default {
       this.$loading.start(tip);
       let response = await get_goods_list_by_assets({
         assets_id: 1,
-        floor_name: this.$store.state.floorName,
+        // floor_name: this.$store.state.floorName,
         has_stock: true,
-        floor: this.$store.state.floorId
+        // floor: this.$store.state.floorId
       })
       let arr = response.data.data.data;
       if (response.data.state === 0) {
