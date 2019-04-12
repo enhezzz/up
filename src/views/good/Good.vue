@@ -88,7 +88,7 @@ export default {
         return err;
       });
 
-      alert(JSON.stringify(response.data));
+      alert(JSON.stringify(response.data.data));
       this.originData = response.data.data.data;
       this.data = JSON.parse(JSON.stringify(response.data.data.data));
       this.$loading.close();
