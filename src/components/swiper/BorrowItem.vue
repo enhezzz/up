@@ -12,10 +12,10 @@
       </div>
       <div class="item stats">
         <div class="num">
-          {{ listItem.remaining_stock }}
+          库存：{{ listItem.remaining_stock }}
         </div>
         <div class="location">
-          （{{ listItem.floor_name }}）
+          楼层：{{ listItem.floor_name }}
         </div>
       </div>
     </div>
