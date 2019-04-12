@@ -118,18 +118,9 @@ export default {
       });
     },
     _isExceed(goodInfo) {
-      let temp = this.data.data
-        .find(type => {
-          return (
-            type.data.find(item => {
+      let temp = this.data.find(item => {
               return `${item.goods_id}` === goodInfo.goods_id;
-            }) !== undefined
-          );
-        })
-        .data.find(item => {
-          return `${item.goods_id}` === goodInfo.goods_id;
         });
-
       return (
         this.$store.state.cart.c[goodInfo.goods_id]["num"] >=
         temp.remaining_stock
