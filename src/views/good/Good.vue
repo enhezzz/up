@@ -113,7 +113,7 @@ export default {
         this.data = [...this.originData];
         return;
       }
-      this.umbrellas = this.originData.filter(item => {
+      this.data = this.originData.filter(item => {
         return item.goods_name.indexOf(_k) !== -1;
       });
     },
