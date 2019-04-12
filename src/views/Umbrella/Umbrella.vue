@@ -100,7 +100,7 @@ export default {
         has_stock: true,
         // floor: this.$store.state.floorId
       })
-      let arr = response.data.data.data;
+      let arr = response.data.data.data[0].data;
       if (response.data.state === 0) {
         this.originUmbrellas = arr;
         this.umbrellas = JSON.parse(JSON.stringify(arr));
