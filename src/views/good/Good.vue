@@ -1,6 +1,6 @@
 <template>
   <div class="book">
-    <SearchBox placeholder="搜索物品名称" @search="search"/>
+    <SearchBox placeholder="搜索物品名称" @search="search" class="s"/>
     <Swiper class="book-list">
       <!-- <template v-slot:options>
         <div class="options">
@@ -87,8 +87,6 @@ export default {
       }).catch(err => {
         return err;
       });
-
-      alert(JSON.stringify(response.data.data));
       this.originData = response.data.data.data;
       this.data = JSON.parse(JSON.stringify(response.data.data.data));
       this.$loading.close();
@@ -111,32 +109,13 @@ export default {
     },
     search(keyword) {
       let _k = keyword.trim();
-      this.currentIndex = 0;
       if (_k === "") {
-        this.data = JSON.parse(JSON.stringify(this.originData));
+        this.data = [...this.originData];
         return;
       }
-      let data = this.originData.data
-        .filter(type => {
-          return (
-            type.data.find(item => {
-              return item.goods_name.indexOf(_k) !== -1; // 筛选条件
-            }) !== undefined
-          );
-        })
-        .map(type => {
-          return {
-            data: type.data.filter(item => {
-              return item.goods_name.indexOf(_k) !== -1;
-            }),
-            goods_type: type.goods_type,
-            goods_type_name: type.goods_type_name
-          };
-        });
-      this.data = {
-        data,
-        total: data.length
-      };
+      this.data = this.originData.filter(item => {
+        return item.goods_name.indexOf(_k) !== -1;
+      });
     },
     _isExceed(goodInfo) {
       let temp = this.data.data
@@ -217,6 +196,9 @@ export default {
     .list {
       padding-bottom: 118px;
     }
+  }
+  .s {
+    margin-bottom: 30px;
   }
   .c {
     position: fixed;
