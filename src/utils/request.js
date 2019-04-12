@@ -43,7 +43,7 @@ function get_type_list () {
   return axios.get(get_type_list_url)
 }
 function get_goods_list_by_assets (condition) {
-  return axios.get(`${get_goods_list_by_assets_url}?assets_id=${condition.assets_id}`)
+  return axios.get(`${get_goods_list_by_assets_url}?assets_id=${condition.assets_id}&has_stock=${condition.has_stock}`)
 }
 
 function borrow_goods (condition) {
