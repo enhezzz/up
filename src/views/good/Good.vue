@@ -190,10 +190,16 @@ export default {
       // floor_name: this.$store.state.floorName,
       has_stock: true,
       // floor: this.$store.state.floorId
+    }).catch(err=> {
+      return err;
     })
+    alert(response)
+    alert(JSON.stringify(response))
+    alert(response.data)
+    alert(JSON.stringify(response.data))
     this.$notify({
     message: JSON.stringify(response.data.data),
-    duration: 0,
+    duration: 100,
     status: "danger"
   })
     this.originData = response.data.data
