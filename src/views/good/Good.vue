@@ -1,6 +1,6 @@
 <template>
   <div class="book">
-    <SearchBox placeholder="搜索物品名称" @search="search"/>
+    <SearchBox placeholder="搜索物品名称" @search="search" class="s"/>
     <Swiper class="book-list">
       <!-- <template v-slot:options>
         <div class="options">
@@ -186,6 +186,9 @@ export default {
     .list {
       padding-bottom: 118px;
     }
+  }
+  .s {
+    margin-bottom: 30px;
   }
   .c {
     position: fixed;
