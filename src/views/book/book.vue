@@ -218,12 +218,12 @@ export default {
       let _k = keyword.trim();
       this.currentIndex = 0;
       if (_k === "") {
-        this.$loading.start("加载中");
-        this.data = JSON.parse(JSON.stringify(this.originData));
-        this.$nextTick(()=> {
-          this.$loading.close();
-        })
-        // this.init("数据重新加载中 ");
+        // this.$loading.start("加载中");
+        // this.data = JSON.parse(JSON.stringify(this.originData));
+        // this.$nextTick(()=> {
+        //   this.$loading.close();
+        // })
+        this.init("数据重新加载中 ");
         return;
       }
       let data = this.originData.data
