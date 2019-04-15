@@ -89,7 +89,7 @@ export default {
   },
   created() {
     // this.umbrellas = [...this.originUmbrellas]
-    this.init("初始化中");
+    this.init("加载中");
   },
   methods: {
     async init(tip) {
@@ -168,7 +168,8 @@ export default {
     search(keyword) {
       let _k = keyword.trim();
       if (_k === "") {
-        this.umbrellas = [...this.originUmbrellas];
+        this.init("数据重新加载中 ");
+        // this.umbrellas = [...this.originUmbrellas];
         return;
       }
       this.umbrellas = this.originUmbrellas.filter(item => {

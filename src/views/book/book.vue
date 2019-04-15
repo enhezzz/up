@@ -36,7 +36,6 @@
                 v-for="item in type.data"
                 :key="item.goods_id"
                 :list-item="item"
-                @mask="mask"
                 @borrow="_borrow"
               />
             </div>
@@ -160,7 +159,7 @@ export default {
   },
   created() {
     // this.data = JSON.parse(JSON.stringify(this.originData))
-    this.init("初始化中");
+    this.init("加载中");
   },
   methods: {
     async init(tip) {
@@ -179,12 +178,10 @@ export default {
       let index = e.target.dataset["index"];
       this.currentIndex = index;
     },
-    mask() {
-      this.maskActived = true;
-    },
     _borrow(borrowInfo) {
       this.returnTime = borrowInfo.returnTime;
       this.currentGoodId = borrowInfo.goodId;
+      this.maskActived = true;
     },
     async borrow() {
       // borrow_goods

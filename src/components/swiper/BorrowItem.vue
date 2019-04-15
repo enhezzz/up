@@ -51,7 +51,6 @@ export default {
         goodId: this.listItem.goods_id,
         returnTime: this.listItem.return_time
       })
-      this.$emit('mask')
     }
   }
 }

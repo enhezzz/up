@@ -58,7 +58,7 @@ export default {
   },
   created () {
     // this.data = JSON.parse(JSON.stringify(this.originData))
-    this.init("初始化中")
+    this.init("加载中")
   },
   data () {
     return {
@@ -113,7 +113,8 @@ export default {
     search (keyword) {
        let _k = keyword.trim();
       if (_k === "") {
-        this.data = [...this.originData];
+        this.init("数据重新加载中 ");
+        // this.data = [...this.originData];
         return;
       }
       this.data = this.originData.filter(item => {
