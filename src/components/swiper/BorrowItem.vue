@@ -12,10 +12,10 @@
       </div>
       <div class="item stats">
         <div class="num">
-          库存：{{ listItem.remaining_stock }}
+          库存:{{ listItem.remaining_stock }}
         </div>
         <div class="location">
-          楼层：{{ listItem.floor_name }}
+          楼层:{{ listItem.floor_name }}
         </div>
       </div>
     </div>
@@ -97,6 +97,11 @@ export default {
                 // height: 40%;
                 display: flex;
                 align-items: center;
+                &.stats {
+                  .num {
+                    margin-right: 15px;
+                  }
+                }
               }
             }
             .material-options {

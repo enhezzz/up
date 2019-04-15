@@ -16,6 +16,7 @@ export default {
           // corpId: "dingb38409443cbae4b035c2f4657eb6378f",
           corpId: "ding9385b4aebd9af88635c2f4657eb6378f",
           onSuccess: result => {
+            alert(`授权码：${result.code}`)
             login({ code: result.code }).then(res => {
               switch (res.data.state) {
                 //	0- 钉钉登入成功，1-无权登入，2-需要跳转到登入页面，3-服务错误
