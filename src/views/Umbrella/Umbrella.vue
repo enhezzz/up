@@ -1,16 +1,13 @@
 <template>
   <div class="umbrella-container">
-    <search-box
-      placeholder="搜索雨伞名称"
-      class="s"
-      @search="search"
-    />
-    <Swiper class="umbrella-list">
+    <search-box placeholder="搜索雨伞名称" :class="{s: !haveType}" @search="search"/>
+    <!-- 无类型 -->
+    <Swiper class="umbrella-list" v-if="!haveType">
       <template v-slot:sliderBox>
         <div class="slider-box">
           <div class="swiper-item">
             <div class="list">
-              <Nothing v-show="isNothing" />
+              <Nothing v-show="isNothing"/>
 
               <UmbrellaBorrowItem
                 v-for="umbrella in umbrellas"
@@ -34,25 +31,48 @@
         </div>
       </template>
     </Swiper>
+    <!-- 有类型 -->
+    <Swiper class="book-list" v-if="haveType">
+      <template v-slot:options>
+        <div class="options">
+          <div
+            v-for="(type,index) in umbrellas.data"
+            :key="type.goods_type"
+            :class="['option', {actived: currentIndex == index}]"
+            :data-index="index"
+            @click="toggleType"
+          >{{ type["goods_type_name"] }}</div>
+        </div>
+      </template>
+      <template v-slot:sliderBox>
+        <div
+          class="slider-box"
+          :style="{width: umbrellas.total ===0? '100%': `${umbrellas.total*100}%`,transform: umbrellas.total === 0? 'translateX(0)': `translateX(${-currentIndex*(100/umbrellas.total)}%)`}"
+        >
+          <Nothing v-show="umbrellas.total === 0"/>
+          <div
+            v-for="(type) in umbrellas.data"
+            :key="type.goods_type"
+            class="swiper-item"
+            :style="{width: `${100/(umbrellas.total)}%`}"
+          >
+            <div class="list">
+              <Nothing v-show="isNothing"/>
+              <template v-for="item in type.data">
+                <UmbrellaBorrowItem :key="item.goods_id" :list-item="item" @borrow="_borrow"/>
+              </template>
+            </div>
+          </div>
+        </div>
+      </template>
+    </Swiper>
     <div :class="['mask',{actived: maskActived}]">
       <!-- <div class="filter"/> -->
       <div class="msg-box">
-        <div class="title">
-          请于{{ returnTime }}天内归还:)
-        </div>
+        <div class="title">请于{{ returnTime }}天内归还:)</div>
         <div class="options">
-          <div
-            class="option cancel"
-            @click="cancel"
-          >
-            取消
-          </div>
-          <div
-            class="option borrow"
-            @click="borrow"
-          >
-            借用
-          </div>
+          <div class="option cancel" @click="cancel">取消</div>
+          <div class="option borrow" @click="borrow">借用</div>
         </div>
       </div>
     </div>
@@ -79,7 +99,9 @@ export default {
       umbrellas: [],
       maskActived: false,
       currentGoodId: undefined,
-      returnTime: 0
+      returnTime: 0,
+      haveType: false,
+      currentIndex: 0,
     };
   },
   computed: {
@@ -97,27 +119,33 @@ export default {
       let response = await get_goods_list_by_assets({
         assets_id: 1,
         // floor_name: this.$store.state.floorName,
-        has_stock: true,
+        has_stock: true
         // floor: this.$store.state.floorId
-      })
-      let arr = response.data.data.data[0].data;
-      if (response.data.state === 0) {
-        this.originUmbrellas = arr;
-        this.umbrellas = JSON.parse(JSON.stringify(arr));
-      } else {
-        this.$notify({
-          message: response.data.msg,
-          duration: 100,
-          status: "danger"
-        });
-      }
-
-      this.$loading.close();
-    },
-    toastTest() {
-      this.$toast({
-        content: "toasttoasttoast"
       });
+      if (
+        response.data.data.total === 1 &&
+        response.data.data.data[0].goods_type === -1
+      ) {
+        this.haveType = false;
+        let arr = response.data.data.data[0].data;
+        if (response.data.state === 0) {
+          this.originUmbrellas = arr;
+          this.umbrellas = JSON.parse(JSON.stringify(arr));
+        } else {
+          this.$notify({
+            message: response.data.msg,
+            duration: 100,
+            status: "danger"
+          });
+        }
+
+        this.$loading.close();
+      } else {
+        this.haveType = true;
+        this.originUmbrellas = response.data.data;
+        this.umbrellas = JSON.parse(JSON.stringify(response.data.data));
+        this.$loading.close();
+      }
     },
     toggleType(e) {
       let index = e.target.dataset["index"];
@@ -168,13 +196,38 @@ export default {
     search(keyword) {
       let _k = keyword.trim();
       if (_k === "") {
+        this.currentIndex = 0
         this.init("数据重新加载中 ");
         // this.umbrellas = [...this.originUmbrellas];
         return;
       }
-      this.umbrellas = this.originUmbrellas.filter(item => {
-        return item.goods_name.indexOf(_k) !== -1;
-      });
+      if (!this.haveType) {
+        this.umbrellas = this.originUmbrellas.filter(item => {
+          return item.goods_name.indexOf(_k) !== -1;
+        });
+      } else {
+        let data = this.originUmbrellas.data
+          .filter(type => {
+            return (
+              type.data.find(item => {
+                return item.goods_name.indexOf(_k) !== -1; // 筛选条件
+              }) !== undefined
+            );
+          })
+          .map(type => {
+            return {
+              data: type.data.filter(item => {
+                return item.goods_name.indexOf(_k) !== -1;
+              }),
+              goods_type: type.goods_type,
+              goods_type_name: type.goods_type_name
+            };
+          });
+        this.data = {
+          data,
+          total: data.length
+        };
+      }
     }
   }
 };
