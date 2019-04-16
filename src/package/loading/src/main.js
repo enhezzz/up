@@ -3,15 +3,17 @@ import main from "./Loading.vue"
 
 let loadingConstructor = Vue.extend(main)
 
-let loading = null
+let loadings = []
 function start(tip) {
-    loading = new loadingConstructor()
+    let loading = new loadingConstructor()
     loading.tip = tip
     loading.$mount()
+    loadings.push(loading)
     document.body.appendChild(loading.$el)
 }
 
 function close() {
+    let loading = loadings.pop()
     loading.$destroy(true)
     document.body.removeChild(loading.$el)
 }

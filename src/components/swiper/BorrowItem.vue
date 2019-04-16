@@ -21,6 +21,7 @@
     </div>
     <div class="material-options">
       <div
+        v-if="listItem.remaining_stock !== 0"
         class="button borrow"
         @click="borrow"
       >

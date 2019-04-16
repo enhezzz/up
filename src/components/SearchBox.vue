@@ -20,14 +20,30 @@ export default {
       default: '搜索书本名称'
     }
   },
+  mounted() {
+    this.interval = setInterval(()=> {
+      this.nowTime += 1000 
+    },1000)
+  },
+  beforeDestroy() {
+    clearInterval(this.interval)
+  },
   data () {
     return {
-      query: ''
+      query: '',
+      prevTime: Date.now(),
+      nowTime: Date.now(),
+      interval: null
     }
   },
   methods: {
     search () {
-      this.$emit('search', this.query)
+      if(this.nowTime - this.prevTime<=1000) return
+      else {
+        this.prevTime = this.nowTime
+        this.$emit('search', this.query)
+      }
+      
     }
   }
 }
