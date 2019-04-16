@@ -3,7 +3,7 @@
     <div>
       <div class="icon" />
       <div class="tips">
-        没有相关信息鸭(●ˇ∀ˇ●)
+        没有相关信息呀(●ˇ∀ˇ●)
       </div>
     </div>
   </div>
