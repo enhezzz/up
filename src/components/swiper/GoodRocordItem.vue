@@ -11,7 +11,7 @@
       <div class="stats">
         <div class="item borrow-date">
           <span class="date">日期：</span>
-          <span class="date">{{ listItem.lent_time.slice(0, 10) }}</span>
+          <span class="date">{{ listItem.lent_time }}</span>
         </div>
         <div class="item return-date">
           <span class="date">数量：</span>
