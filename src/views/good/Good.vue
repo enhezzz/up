@@ -141,7 +141,8 @@ export default {
       } else {
         this.haveType = true;
         this.originData = response.data.data;
-        this.data = JSON.parse(JSON.stringify(response.data.data));
+        this.originData.data = [...this.originData.data].reverse()
+        this.data = JSON.parse(JSON.stringify(this.originData));
         this.$loading.close();
       }
     },
