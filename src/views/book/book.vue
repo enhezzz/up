@@ -154,12 +154,28 @@ export default {
       currentIndex: 0,
       maskActived: false,
       currentGoodId: undefined,
-      returnTime: 0
+      returnTime: 0,
+      from: "",
+      name: ""
     };
   },
+beforeRouteLeave (to, from, next) {
+    localStorage.bookData = JSON.stringify(this.data)
+    localStorage.bookOriginData = JSON.stringify(this.originData)
+    if(to.path === "/")
+    localStorage.removeItem("searchKeyword")
+    next()
+
+},
   created() {
     // this.data = JSON.parse(JSON.stringify(this.originData))
+    let from = localStorage.from
+    if(from === "/")
     this.init("加载中");
+    else {
+      this.data = JSON.parse(localStorage.bookData)
+      this.originData = JSON.parse(localStorage.bookOriginData)
+    }
   },
   methods: {
     async init(tip) {
@@ -213,6 +229,7 @@ export default {
     },
     search(keyword) {
       let _k = keyword.trim();
+      localStorage.searchKeyword = _k
       this.currentIndex = 0;
       if (_k === "") {
         // this.$loading.start("加载中");
@@ -244,6 +261,7 @@ export default {
         data,
         total: data.length
       };
+
     }
   }
 };
