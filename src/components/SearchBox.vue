@@ -20,9 +20,12 @@ export default {
       default: '搜索书本名称'
     }
   },
+  created() {
+    this.query = localStorage.searchKeyword || ""
+  },
   mounted() {
     this.interval = setInterval(()=> {
-      this.nowTime += 1000 
+      this.nowTime += 1000
     },1000)
   },
   beforeDestroy() {
@@ -43,7 +46,7 @@ export default {
         this.prevTime = this.nowTime
         this.$emit('search', this.query)
       }
-      
+
     }
   }
 }

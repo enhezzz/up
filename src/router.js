@@ -81,7 +81,7 @@ router.beforeEach((to, from, next) => {
   } else {
     document.title = to["meta"]["title"]
   }
-
+  localStorage.from = from.path
   next() // 确保一定要调用 next()
 
 })
