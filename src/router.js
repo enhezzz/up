@@ -9,7 +9,7 @@ let router = new Router({
       path: '/',
       name: 'home',
       component: Home,
-      meta: { title: "借用平台" }
+      meta: { title: "行政平台" }
     },
     {
       path: '/me/record/borrow',
