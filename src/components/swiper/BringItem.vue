@@ -10,7 +10,7 @@
       </div>
       <div class="item stats">
         <div class="num">
-          剩余：{{ listItem.remaining_stock }}
+          剩余：{{ listItem.remaining_stock }}{{ listItem.unit }}
         </div>
         <!-- <div class="location">
             ({{ listItem.floorLocation }}F)
