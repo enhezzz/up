@@ -97,7 +97,7 @@ export default {
     },
     add (goodInfo) {
       // if (this.isExceed) return
-      this.$emit("add",goodInfo)
+      this.$emit('add', goodInfo)
       // this.$store.commit('cart/add', goodInfo)
     },
     sub (goodInfo) {
@@ -110,8 +110,8 @@ export default {
       this.$emit('clear')
       this.$store.commit('cart/clear')
     },
-    ok() {
-      this.$emit("ok")
+    ok () {
+      this.$emit('ok')
     }
   }
 }

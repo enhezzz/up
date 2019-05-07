@@ -56,8 +56,8 @@
 </template>
 <script>
 import BottomNav from '../../components/BottomNav.vue'
-import Nothing from "../../components/Nothing.vue"
-import { get_book_detail_info } from '../../utils/request.js'
+import Nothing from '../../components/Nothing.vue'
+import { getBookDetailInfo } from '../../utils/request.js'
 export default {
   components: {
     BottomNav,
@@ -71,8 +71,8 @@ export default {
   },
   async created () {
     this.$loading.start()
-    let goods_id = this.$route.query.goods_id
-    let response = await get_book_detail_info(goods_id)
+    let goodsId = this.$route.query.goods_id
+    let response = await getBookDetailInfo(goodsId)
     this.goods_info = response[0].data.data.data
     this.goods_lent_info = response[1].data.data.data
     this.$loading.close()

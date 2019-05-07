@@ -27,64 +27,63 @@
   </div>
 </template>
 <script>
-import SearchBox from "../../components/SearchBox.vue";
-import Swiper from "../../components/swiper/Swiper.vue";
-import ReturnItem from "../../components/swiper/ReturnItem.vue";
-import GoodRecordItem from "../../components/swiper/GoodRocordItem.vue"
-import { get_lent_info } from "../../utils/request.js";
-import Nothing from "../../components/Nothing.vue";
+import SearchBox from '../../components/SearchBox.vue'
+import Swiper from '../../components/swiper/Swiper.vue'
+import GoodRecordItem from '../../components/swiper/GoodRocordItem.vue'
+import { getLentInfo } from '../../utils/request.js'
+import Nothing from '../../components/Nothing.vue'
 export default {
-  name: "GoodsRecord",
+  name: 'GoodsRecord',
   components: {
     SearchBox,
     Swiper,
     Nothing,
     GoodRecordItem
   },
-  data() {
+  data () {
     return {
       originData: [],
       data: [],
       currentIndex: 0,
       maskActived: false,
       currentGoodId: undefined
-    };
+    }
   },
-  async created() {
-    this.$loading.start();
-    let response = await get_lent_info({
+  async created () {
+    this.$loading.start()
+    let response = await getLentInfo({
       lent_code: this.$store.state.workCode,
       assets_id: 5,
       is_return: 2
-    });
+    })
     if (response.data.state === 0) {
-      this.originData = response.data.data.data.noreturn_list;
-      this.data = JSON.parse(JSON.stringify(response.data.data.data.noreturn_list));
+      this.originData = response.data.data.data.noreturn_list
+      this.data = JSON.parse(JSON.stringify(response.data.data.data.noreturn_list))
     } else {
       this.$notify({
         message: response.data.msg,
         duration: 100,
-        status: "danger"
-      });
+        status: 'danger'
+      })
     }
-    this.$loading.close();
+    this.$loading.close()
   },
 
   methods: {
-    search(keyword) {
-      let _k = keyword.trim();
-      this.currentIndex = 0;
-      if (_k === "") {
-        this.data = JSON.parse(JSON.stringify(this.originData));
-        return;
+    search (keyword) {
+      let _k = keyword.trim()
+      this.currentIndex = 0
+      if (_k === '') {
+        this.data = JSON.parse(JSON.stringify(this.originData))
+        return
       }
-     
-      this.data = this.originData.filter(item=> {
+
+      this.data = this.originData.filter(item => {
         return item.goods_name.indexOf(_k) !== -1
-      });
+      })
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .good-record-box {

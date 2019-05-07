@@ -10,7 +10,7 @@
           {{ username }}
         </div>
         <div class="item department">
-          {{floorName}}·{{ department }}
+          {{ floorName }}·{{ department }}
         </div>
       </div>
     </div>
@@ -106,13 +106,13 @@ export default {
     BottomNav
   },
   computed: {
-    username() {
+    username () {
       return this.$store.state.username
     },
-    department() {
+    department () {
       return this.$store.state.department
     },
-    floorName() {
+    floorName () {
       return this.$store.state.floorName
     }
   }

@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 // import Toast from '../src/components/Toast/index'
-import Notification from "./package/notification/index"
-import Loading from "./package/loading/index"
+import Notification from './package/notification/index'
+import Loading from './package/loading/index'
 import './registerServiceWorker'
 
 import './styles/variable.scss'

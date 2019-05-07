@@ -1,7 +1,7 @@
-import Notification from "./src/main"
+import Notification from './src/main'
 
 export default {
-    install(Vue) {
-        Vue.prototype.$notify = Notification
-    }
+  install (Vue) {
+    Vue.prototype.$notify = Notification
+  }
 }

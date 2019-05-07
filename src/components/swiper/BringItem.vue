@@ -73,11 +73,11 @@ export default {
       let cartLeft = cart.getBoundingClientRect().left
       let cartTop = cart.getBoundingClientRect().top
       let ballParent = document.createElement('div')
-      function transitionendListener() {
-         ballParent.removeEventListener("transitionend",transitionendListener)
-         ballParent.parentNode.removeChild(ballParent)
+      function transitionendListener () {
+        ballParent.removeEventListener('transitionend', transitionendListener)
+        ballParent.parentNode.removeChild(ballParent)
       }
-      ballParent.addEventListener("transitionend",transitionendListener)
+      ballParent.addEventListener('transitionend', transitionendListener)
       ballParent.classList.add('ballParent')
       let ball = document.createElement('div')
       ball.classList.add('ball')

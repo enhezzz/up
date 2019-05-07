@@ -82,20 +82,20 @@
   </div>
 </template>
 <script>
-import SearchBox from "../../components/SearchBox.vue";
-import Swiper from "../../components/swiper/Swiper.vue";
-import ReturnItem from "../../components/swiper/ReturnItem.vue";
-import { get_lent_info, return_goods } from "../../utils/request.js";
-import Nothing from "../../components/Nothing.vue";
+import SearchBox from '../../components/SearchBox.vue'
+import Swiper from '../../components/swiper/Swiper.vue'
+import ReturnItem from '../../components/swiper/ReturnItem.vue'
+import { getLentInfo, returnGoods } from '../../utils/request.js'
+import Nothing from '../../components/Nothing.vue'
 export default {
-  name: "GoodsRecord",
+  name: 'GoodsRecord',
   components: {
     SearchBox,
     Swiper,
     ReturnItem,
     Nothing
   },
-  data() {
+  data () {
     return {
       originData: {
         // return_list: [
@@ -153,87 +153,87 @@ export default {
       maskActived: false,
       currentGoodId: null,
       currentLentInfoId: null
-    };
+    }
   },
   computed: {
-    totalTypeNum() {
-      return Object.keys(this.data).length;
-    },
+    totalTypeNum () {
+      return Object.keys(this.data).length
+    }
   },
-  async created() {
+  async created () {
     this.init()
   },
   methods: {
-    async init() {
-      this.$loading.start();
-      let response = await get_lent_info({
+    async init () {
+      this.$loading.start()
+      let response = await getLentInfo({
         lent_code: this.$store.state.workCode,
         assets_id: this.$route.query.assets_id,
         is_return: 3
-      });
+      })
       if (response.data.state === 0) {
-        this.originData = response.data.data.data;
-        this.data = JSON.parse(JSON.stringify(response.data.data.data));
+        this.originData = response.data.data.data
+        this.data = JSON.parse(JSON.stringify(response.data.data.data))
       } else {
         this.$notify({
           message: response.data.msg,
           duration: 100,
-          status: "danger"
-        });
+          status: 'danger'
+        })
       }
-      this.$loading.close();
+      this.$loading.close()
     },
-    toggleType(e) {
-      let index = e.target.dataset["index"];
-      this.currentIndex = index;
+    toggleType (e) {
+      let index = e.target.dataset['index']
+      this.currentIndex = index
     },
-    _returns(borrowInfo) {
-      this.maskActived = true;
-      this.currentGoodId = borrowInfo.goods_id;
-      this.currentLentInfoId = borrowInfo.lent_info_id;
+    _returns (borrowInfo) {
+      this.maskActived = true
+      this.currentGoodId = borrowInfo.goods_id
+      this.currentLentInfoId = borrowInfo.lent_info_id
     },
-    async ok() {
-      this.maskActived = false;
-      this.$loading.start();
-      let response = await return_goods({
+    async ok () {
+      this.maskActived = false
+      this.$loading.start()
+      let response = await returnGoods({
         goods_id: this.currentGoodId,
         lent_info_id: this.currentLentInfoId
-      });
-      this.$loading.close();
+      })
+      this.$loading.close()
       if (response.data.state === 0) {
         this.$notify({
           message: response.data.msg,
           duration: 100
-        });
+        })
       } else {
         this.$notify({
           message: response.data.msg,
           dutation: 100,
-          status: "danger"
-        });
+          status: 'danger'
+        })
       }
       this.init()
     },
-    search(keyword) {
-      let _k = keyword.trim();
-      this.currentIndex = 0;
-      if (_k === "") {
-        this.data = JSON.parse(JSON.stringify(this.originData));
-        return;
+    search (keyword) {
+      let _k = keyword.trim()
+      this.currentIndex = 0
+      if (_k === '') {
+        this.data = JSON.parse(JSON.stringify(this.originData))
+        return
       }
-      let temp = {};
+      let temp = {}
       Object.keys(this.originData).forEach(key => {
         temp[key] = this.originData[key].filter(item => {
-          return item.goods_name.indexOf(_k) !== -1;
-        });
-      });
+          return item.goods_name.indexOf(_k) !== -1
+        })
+      })
       Object.keys(temp).forEach(key => {
-        if (Array.isArray(temp[key]) && temp[key].length == 0) delete temp[key];
-      });
-      this.data = temp;
+        if (Array.isArray(temp[key]) && temp[key].length === 0) delete temp[key]
+      })
+      this.data = temp
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .return-box {

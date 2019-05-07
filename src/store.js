@@ -37,30 +37,30 @@ export default new Vuex.Store({
     }
   },
   state: {
-    username: "admin",
-    workCode: "2018000",
-    floorName: "",
-    department: "研发部",
-    avatar: "",
-    floorId: ""
+    username: 'admin',
+    workCode: '2018000',
+    floorName: '',
+    department: '研发部',
+    avatar: '',
+    floorId: ''
   },
   mutations: {
-    updateUsername(state,username) {
+    updateUsername (state, username) {
       state.username = username
     },
-    updateWorkCode(state, workCode) {
+    updateWorkCode (state, workCode) {
       state.workCode = workCode
     },
-    updateAvatar(state, avatar) {
+    updateAvatar (state, avatar) {
       state.avatar = avatar
     },
-    updateDepartment(state, department) {
+    updateDepartment (state, department) {
       state.department = department
     },
-    updateFloorName(state, floorName) {
+    updateFloorName (state, floorName) {
       state.floorName = floorName
     },
-    updateFloorId(state, floorId) {
+    updateFloorId (state, floorId) {
       state.floorId = floorId
     }
   },
