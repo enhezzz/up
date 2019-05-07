@@ -12,12 +12,12 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
-      tip: ""
-    };
+      tip: ''
+    }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 @keyframes bouncing-loader {

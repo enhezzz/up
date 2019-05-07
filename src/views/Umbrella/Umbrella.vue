@@ -1,13 +1,20 @@
 <template>
   <div class="umbrella-container">
-    <search-box placeholder="搜索雨伞名称" :class="{s: !haveType}" @search="search"/>
+    <search-box
+      placeholder="搜索雨伞名称"
+      :class="{s: !haveType}"
+      @search="search"
+    />
     <!-- 无类型 -->
-    <Swiper class="umbrella-list" v-if="!haveType">
+    <Swiper
+      v-if="!haveType"
+      class="umbrella-list"
+    >
       <template v-slot:sliderBox>
         <div class="slider-box">
           <div class="swiper-item">
             <div class="list">
-              <Nothing v-show="isNothing"/>
+              <Nothing v-show="isNothing" />
 
               <UmbrellaBorrowItem
                 v-for="umbrella in umbrellas"
@@ -32,7 +39,10 @@
       </template>
     </Swiper>
     <!-- 有类型 -->
-    <Swiper class="book-list" v-if="haveType">
+    <Swiper
+      v-if="haveType"
+      class="book-list"
+    >
       <template v-slot:options>
         <div class="options">
           <div
@@ -41,7 +51,9 @@
             :class="['option', {actived: currentIndex == index}]"
             :data-index="index"
             @click="toggleType"
-          >{{ type["goods_type_name"] }}</div>
+          >
+            {{ type["goods_type_name"] }}
+          </div>
         </div>
       </template>
       <template v-slot:sliderBox>
@@ -49,7 +61,7 @@
           class="slider-box"
           :style="{width: umbrellas.total ===0? '100%': `${umbrellas.total*100}%`,transform: umbrellas.total === 0? 'translateX(0)': `translateX(${-currentIndex*(100/umbrellas.total)}%)`}"
         >
-          <Nothing v-show="umbrellas.total === 0"/>
+          <Nothing v-show="umbrellas.total === 0" />
           <div
             v-for="(type) in umbrellas.data"
             :key="type.goods_type"
@@ -57,9 +69,13 @@
             :style="{width: `${100/(umbrellas.total)}%`}"
           >
             <div class="list">
-              <Nothing v-show="isNothing"/>
+              <Nothing v-show="isNothing" />
               <template v-for="item in type.data">
-                <UmbrellaBorrowItem :key="item.goods_id" :list-item="item" @borrow="_borrow"/>
+                <UmbrellaBorrowItem
+                  :key="item.goods_id"
+                  :list-item="item"
+                  @borrow="_borrow"
+                />
               </template>
             </div>
           </div>
@@ -69,10 +85,22 @@
     <div :class="['mask',{actived: maskActived}]">
       <!-- <div class="filter"/> -->
       <div class="msg-box">
-        <div class="title">请于{{ returnTime }}天内归还:)</div>
+        <div class="title">
+          请于{{ returnTime }}天内归还:)
+        </div>
         <div class="options">
-          <div class="option cancel" @click="cancel">取消</div>
-          <div class="option borrow" @click="borrow">借用</div>
+          <div
+            class="option cancel"
+            @click="cancel"
+          >
+            取消
+          </div>
+          <div
+            class="option borrow"
+            @click="borrow"
+          >
+            借用
+          </div>
         </div>
       </div>
     </div>
@@ -80,20 +108,20 @@
 </template>
 
 <script>
-import SearchBox from "components/SearchBox";
-import Swiper from "components/swiper/Swiper.vue";
-import UmbrellaBorrowItem from "components/swiper/UmbrellaBorrowItem.vue";
-import Nothing from "../../components/Nothing.vue";
-import { get_goods_list_by_assets, borrow_goods } from "../../utils/request.js";
+import SearchBox from 'components/SearchBox'
+import Swiper from 'components/swiper/Swiper.vue'
+import UmbrellaBorrowItem from 'components/swiper/UmbrellaBorrowItem.vue'
+import Nothing from '../../components/Nothing.vue'
+import { getGoodsListByAssets, borrowGoods } from '../../utils/request.js'
 export default {
-  name: "Umbrella",
+  name: 'Umbrella',
   components: {
     SearchBox,
     Swiper,
     UmbrellaBorrowItem,
     Nothing
   },
-  data() {
+  data () {
     return {
       originUmbrellas: [],
       umbrellas: [],
@@ -101,136 +129,136 @@ export default {
       currentGoodId: undefined,
       returnTime: 0,
       haveType: false,
-      currentIndex: 0,
-    };
-  },
-  computed: {
-    isNothing() {
-      return this.umbrellas.length === 0;
+      currentIndex: 0
     }
   },
-  created() {
+  computed: {
+    isNothing () {
+      return this.umbrellas.length === 0
+    }
+  },
+  created () {
     // this.umbrellas = [...this.originUmbrellas]
-    this.init("加载中");
+    this.init('加载中')
   },
   methods: {
-    async init(tip) {
-      this.$loading.start(tip);
-      let response = await get_goods_list_by_assets({
+    async init (tip) {
+      this.$loading.start(tip)
+      let response = await getGoodsListByAssets({
         assets_id: 1,
         // floor_name: this.$store.state.floorName,
         has_stock: true
         // floor: this.$store.state.floorId
-      });
+      })
       if (
         response.data.data.total === 1 &&
         response.data.data.data[0].goods_type === -1
       ) {
-        this.haveType = false;
-        let arr = response.data.data.data[0].data;
+        this.haveType = false
+        let arr = response.data.data.data[0].data
         if (response.data.state === 0) {
-          this.originUmbrellas = arr;
-          this.umbrellas = JSON.parse(JSON.stringify(arr));
+          this.originUmbrellas = arr
+          this.umbrellas = JSON.parse(JSON.stringify(arr))
         } else {
           this.$notify({
             message: response.data.msg,
             duration: 100,
-            status: "danger"
-          });
+            status: 'danger'
+          })
         }
 
-        this.$loading.close();
+        this.$loading.close()
       } else {
-        this.haveType = true;
-        this.originUmbrellas = response.data.data;
-        this.umbrellas = JSON.parse(JSON.stringify(response.data.data));
-        this.$loading.close();
+        this.haveType = true
+        this.originUmbrellas = response.data.data
+        this.umbrellas = JSON.parse(JSON.stringify(response.data.data))
+        this.$loading.close()
       }
     },
-    toggleType(e) {
-      let index = e.target.dataset["index"];
-      this.currentIndex = index;
+    toggleType (e) {
+      let index = e.target.dataset['index']
+      this.currentIndex = index
     },
-    _borrow(borrowInfo) {
-      this.maskActived = true;
-      this.returnTime = borrowInfo.returnTime;
-      this.currentGoodId = borrowInfo.goodId;
+    _borrow (borrowInfo) {
+      this.maskActived = true
+      this.returnTime = borrowInfo.returnTime
+      this.currentGoodId = borrowInfo.goodId
     },
-    cancel() {
-      this.maskActived = false;
+    cancel () {
+      this.maskActived = false
     },
-    async borrow() {
-      this.$loading.start("处理中");
-      this.maskActived = false;
-      let response = await borrow_goods({
+    async borrow () {
+      this.$loading.start('处理中')
+      this.maskActived = false
+      let response = await borrowGoods({
         goods_id: this.currentGoodId,
         lent_name: this.$store.state.username,
         lent_code: this.$store.state.workCode,
         lent_count: 1
-      });
+      })
       if (response.data.state === 0) {
         this.umbrellas = this.umbrellas
           .map(umbrella => {
             return {
               ...umbrella,
               remaining_stock: umbrella.remaining_stock - 1
-            };
+            }
           })
           .filter(umbrella => {
-            return umbrella.remaining_stock > 0;
-          });
+            return umbrella.remaining_stock > 0
+          })
         this.$notify({
           message: response.data.msg,
           duration: 100
-        });
+        })
       } else {
         this.$notify({
           message: response.data.msg,
           duration: 100,
-          status: "danger"
-        });
+          status: 'danger'
+        })
       }
-      this.$loading.close();
-      this.init("数据重新加载中");
+      this.$loading.close()
+      this.init('数据重新加载中')
     },
-    search(keyword) {
-      let _k = keyword.trim();
-      if (_k === "") {
+    search (keyword) {
+      let _k = keyword.trim()
+      if (_k === '') {
         this.currentIndex = 0
-        this.init("数据重新加载中 ");
+        this.init('数据重新加载中 ')
         // this.umbrellas = [...this.originUmbrellas];
-        return;
+        return
       }
       if (!this.haveType) {
         this.umbrellas = this.originUmbrellas.filter(item => {
-          return item.goods_name.indexOf(_k) !== -1;
-        });
+          return item.goods_name.indexOf(_k) !== -1
+        })
       } else {
         let data = this.originUmbrellas.data
           .filter(type => {
             return (
               type.data.find(item => {
-                return item.goods_name.indexOf(_k) !== -1; // 筛选条件
+                return item.goods_name.indexOf(_k) !== -1 // 筛选条件
               }) !== undefined
-            );
+            )
           })
           .map(type => {
             return {
               data: type.data.filter(item => {
-                return item.goods_name.indexOf(_k) !== -1;
+                return item.goods_name.indexOf(_k) !== -1
               }),
               goods_type: type.goods_type,
               goods_type_name: type.goods_type_name
-            };
-          });
+            }
+          })
         this.data = {
           data,
           total: data.length
-        };
+        }
       }
     }
   }
-};
+}
 </script>
 
 <style scoped lang='scss'>

@@ -5,23 +5,23 @@
 </template>
 <script>
 export default {
-  name: "Notification",
-  data() {
+  name: 'Notification',
+  data () {
     return {
       verticalPosition: 16,
-      status: "danger",
+      status: 'danger',
       duration: 0
-    };
+    }
   },
-  mounted() {
+  mounted () {
     if (this.duration !== 0) {
       setTimeout(() => {
-        this.$destroy(true);
-        this.$el.parentNode.removeChild(this.$el);
-      }, this.duration + 2000);
+        this.$destroy(true)
+        this.$el.parentNode.removeChild(this.$el)
+      }, this.duration + 2000)
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .notification {

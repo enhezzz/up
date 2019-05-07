@@ -17,44 +17,45 @@
 </template>
 <script>
 export default {
-  name: "Notification",
+  name: 'Notification',
   props: {
     notifications: {
       type: Array,
       required: true
     }
   },
-  data() {
+  data () {
     return {
       interval: null,
       timeout: null
-    };
+    }
   },
   watch: {
-    notifications() {
-      clearInterval(this.interval);
-      clearTimeout(this.timeout);
+    notifications () {
+      clearInterval(this.interval)
+      clearTimeout(this.timeout)
       if (this.notifications.length > 1) {
         this.interval = setInterval(() => {
           this.$refs.container.style = `transform: translate3d(0px, ${-100 /
             this.notifications
               .length}%, 0px);transition: transform 1000ms ease;height: ${this
-            .notifications.length * 100}%`;
+            .notifications.length * 100}%`
           this.timeout = setTimeout(() => {
-            this.notifications.push(this.notifications.shift());
-            if (this)
+            this.notifications.push(this.notifications.shift())
+            if (this) {
               this.$refs.container.style = `transform: translate3d(0px, 0, 0px);transition: transform 0ms ease;height: ${this
-                .notifications.length * 100}%`;
-          }, 1200);
-        }, 6000);
+                .notifications.length * 100}%`
+            }
+          }, 1200)
+        }, 6000)
       }
     }
   },
-  beforeDestroy() {
-    clearInterval(this.interval);
-    clearTimeout(this.timeout);
+  beforeDestroy () {
+    clearInterval(this.interval)
+    clearTimeout(this.timeout)
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .notification-box {

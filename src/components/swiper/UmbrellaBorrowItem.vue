@@ -9,12 +9,21 @@
         <span>{{ listItem.goods_name }}</span>
       </div>
       <div class="item stats">
-        <div class="num">库存:{{ listItem.remaining_stock }}</div>
-        <div class="location">楼层:{{ listItem.floor_name }}</div>
+        <div class="num">
+          库存:{{ listItem.remaining_stock }}{{ listItem.unit }}
+        </div>
+        <div class="location">
+          楼层:{{ listItem.floor_name }}
+        </div>
       </div>
     </div>
     <div class="material-options">
-      <div class="button borrow" @click="borrow">借用</div>
+      <div
+        class="button borrow"
+        @click="borrow"
+      >
+        借用
+      </div>
       <!-- <router-link
           class="button check"
           to="/book/detail"
@@ -27,7 +36,7 @@
 </template>
 <script>
 export default {
-  name: "UmbrellaBorrowItem",
+  name: 'UmbrellaBorrowItem',
   props: {
     listItem: {
       type: Object,
@@ -35,14 +44,14 @@ export default {
     }
   },
   methods: {
-    borrow() {
-      this.$emit("borrow", {
+    borrow () {
+      this.$emit('borrow', {
         goodId: this.listItem.goods_id,
         returnTime: this.listItem.return_time
-      });
+      })
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .list {

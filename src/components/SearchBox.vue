@@ -20,17 +20,6 @@ export default {
       default: '搜索书本名称'
     }
   },
-  created() {
-    this.query = localStorage.searchKeyword || ""
-  },
-  mounted() {
-    this.interval = setInterval(()=> {
-      this.nowTime += 1000
-    },1000)
-  },
-  beforeDestroy() {
-    clearInterval(this.interval)
-  },
   data () {
     return {
       query: '',
@@ -39,14 +28,23 @@ export default {
       interval: null
     }
   },
+  created () {
+    this.query = localStorage.searchKeyword || ''
+  },
+  mounted () {
+    this.interval = setInterval(() => {
+      this.nowTime += 1000
+    }, 1000)
+  },
+  beforeDestroy () {
+    clearInterval(this.interval)
+  },
   methods: {
     search () {
-      if(this.nowTime - this.prevTime<=1000) return
-      else {
+      if (this.nowTime - this.prevTime <= 1000) {} else {
         this.prevTime = this.nowTime
         this.$emit('search', this.query)
       }
-
     }
   }
 }

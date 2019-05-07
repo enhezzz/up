@@ -10,8 +10,8 @@
 </template>
 <script>
 export default {
-    name: "Nothing"
-};
+  name: 'Nothing'
+}
 </script>
 <style lang="scss" scoped>
 .nothing {

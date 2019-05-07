@@ -1,7 +1,7 @@
-import loading from "./src/main"
+import loading from './src/main'
 
 export default {
-    install(Vue) {
-        Vue.prototype.$loading = loading
-    }
+  install (Vue) {
+    Vue.prototype.$loading = loading
+  }
 }

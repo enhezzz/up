@@ -9,7 +9,7 @@ let router = new Router({
       path: '/',
       name: 'home',
       component: Home,
-      meta: { title: "行政平台" }
+      meta: { title: '行政平台' }
     },
     {
       path: '/me/record/borrow',
@@ -26,7 +26,7 @@ let router = new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "record" */ './views/record/GoodsRecord.vue'),
-      meta: { title: "物品领取记录" }
+      meta: { title: '物品领取记录' }
     },
     {
       path: '/me',
@@ -35,31 +35,31 @@ let router = new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "me" */ './views/Me.vue'),
-      meta: { title: "个人中心" }
+      meta: { title: '个人中心' }
     },
     {
       path: '/book',
       name: 'book',
       component: () => import(/* webpackChunkName: "book" */ './views/book/book.vue'),
-      meta: { title: "共享图书" }
+      meta: { title: '共享图书' }
     },
     {
       path: '/book/detail',
       name: 'bookDetail',
       component: () => import(/* webpackChunkName: "book" */ './views/book/BookDetail.vue'),
-      meta: { title: "图书详情" }
+      meta: { title: '图书详情' }
     },
     {
       path: '/umbrella',
       name: 'umbrella',
       component: () => import(/* webpackChunkName: "umbrella" */ 'views/Umbrella/Umbrella.vue'),
-      meta: { title: "共享雨伞" }
+      meta: { title: '共享雨伞' }
     },
     {
       path: '/good',
       name: 'good',
       component: () => import(/* webpackChunkName: "good" */ 'views/good/Good.vue'),
-      meta: { title: "物品领取" }
+      meta: { title: '物品领取' }
     }
     // {
     //   path: '/return',
@@ -70,20 +70,17 @@ let router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-
-  if (to.path === "/me/record/borrow") {
-
-    if (to.query.assets_id === "1") {
-      document.title = "雨伞借取记录"
-    } else if (to.query.assets_id === "2") {
-      document.title = "图书借取记录"
+  if (to.path === '/me/record/borrow') {
+    if (to.query.assets_id === '1') {
+      document.title = '雨伞借取记录'
+    } else if (to.query.assets_id === '2') {
+      document.title = '图书借取记录'
     }
   } else {
-    document.title = to["meta"]["title"]
+    document.title = to['meta']['title']
   }
   localStorage.from = from.path
   next() // 确保一定要调用 next()
-
 })
 
 export default router

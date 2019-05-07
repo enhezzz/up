@@ -55,20 +55,20 @@ export default {
     &.router-link-exact-active {
       .home {
         color: $assist-light-blue;
-          
+
           &::before {
             @include bg-image('../assets/common/icon_home_sel');
           }
-        
+
       }
       .me {
         color: $assist-light-blue;
-          
+
           &::before {
             @include bg-image('../assets/common/icon_wd_sel');
           }
         }
-      
+
     }
     span {
       letter-spacing: 3px;

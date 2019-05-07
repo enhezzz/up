@@ -36,26 +36,26 @@
 <script>
 // @ is an alias to /src
 import BottomNav from '../components/BottomNav.vue'
-import Notification from "../components/Notification.vue"
-import {get_publish_announce} from "../utils/request.js"
+import Notification from '../components/Notification.vue'
+import { getPublishAnnounce } from '../utils/request.js'
 export default {
   name: 'Home',
   components: {
     BottomNav,
     Notification
   },
-  data() {
+  data () {
     return {
       notifications: []
     }
   },
-  created() {
+  created () {
     this.init()
   },
   methods: {
-    async init() {
+    async init () {
       // this.$loading.start()
-      let response =  await get_publish_announce()
+      let response = await getPublishAnnounce()
       this.notifications = response.data.data.data
       // this.$loading.close()
     }
