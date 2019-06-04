@@ -35,7 +35,7 @@ module.exports = {
     hotOnly: false,
     proxy: {
       '/api': {
-        target: 'http://192.168.13.51:8878'
+        target: 'http://192.168.13.72:8878'
         // target: 'http://192.168.13.43:3000'
       }
     } // 设置代理
