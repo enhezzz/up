@@ -210,6 +210,7 @@ export default {
           message: response.data.msg,
           duration: 100
         })
+        this.$router.push('/me/record/borrow?assets_id=2')
       } else {
         this.$notify({
           message: response.data.msg,

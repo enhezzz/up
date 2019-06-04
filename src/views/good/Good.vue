@@ -284,6 +284,7 @@ export default {
           message: response.data.msg,
           duration: 100
         })
+        this.$router.push('/me/record/goods')
       } else {
         this.$notify({
           message: response.data.msg,
