@@ -40,7 +40,7 @@ let router = new Router({
     {
       path: '/book',
       name: 'book',
-      component: () => import(/* webpackChunkName: "book" */ './views/book/book.vue'),
+      component: () => import(/* webpackChunkName: "book" */ './views/book/Book.vue'),
       meta: { title: '共享图书' }
     },
     {
