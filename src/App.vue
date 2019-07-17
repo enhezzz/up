@@ -59,6 +59,8 @@ export default {
 }
 body {
   margin: 0;
+   overflow:auto;   /* 用于 android4+，或其他设备 */
+  -webkit-overflow-scrolling:touch;    /* 用于 ios5+ */
 }
 * {
   box-sizing: border-box;
