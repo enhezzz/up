@@ -27,15 +27,17 @@
         <div class="slider-box">
           <div class="swiper-item">
             <div class="list">
-              <Nothing v-show="isNothing" />
-              <template v-for="item in data">
-                <BringItem
-                  :key="item.goods_id"
-                  :list-item="item"
-                  @mask="mask"
-                  @borrow="borrow"
-                />
-              </template>
+              <div class="list-inner">
+                <Nothing v-show="isNothing" />
+                <template v-for="item in data">
+                  <BringItem
+                    :key="item.goods_id"
+                    :list-item="item"
+                    @mask="mask"
+                    @borrow="borrow"
+                  />
+                </template>
+              </div>
             </div>
           </div>
         </div>
@@ -72,15 +74,17 @@
             :style="{width: `${100/(data.total)}%`}"
           >
             <div class="list">
-              <Nothing v-show="isNothing" />
-              <template v-for="item in type.data">
-                <BringItem
-                  :key="item.goods_id"
-                  :list-item="item"
-                  @mask="mask"
-                  @borrow="borrow"
-                />
-              </template>
+              <div class="list-inner">
+                <Nothing v-show="isNothing" />
+                <template v-for="item in type.data">
+                  <BringItem
+                    :key="item.goods_id"
+                    :list-item="item"
+                    @mask="mask"
+                    @borrow="borrow"
+                  />
+                </template>
+              </div>
             </div>
           </div>
         </div>

@@ -32,12 +32,14 @@
             :style="{width: `${100/(data.total)}%`}"
           >
             <div class="list">
-              <BorrowItem
-                v-for="item in type.data"
-                :key="item.goods_id"
-                :list-item="item"
-                @borrow="_borrow"
-              />
+              <div class="list-inner">
+                <BorrowItem
+                  v-for="item in type.data"
+                  :key="item.goods_id"
+                  :list-item="item"
+                  @borrow="_borrow"
+                />
+              </div>
             </div>
             <!-- <BorrowItem
 

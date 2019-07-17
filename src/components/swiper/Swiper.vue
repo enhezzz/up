@@ -75,8 +75,12 @@ export default {}
         float: left;
         padding: 0 1px;
         .list {
+          -webkit-overflow-scrolling: touch;
           height: 100%;
-          overflow-y: auto;
+          overflow-y: scroll;
+          .list-inner {
+            min-height: calc(100% + 1px);
+          }
           .list-item {
             text-align: left;
             display: flex;
