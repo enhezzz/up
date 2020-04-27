@@ -12,6 +12,7 @@ function addStyleResource (rule) {
 }
 
 module.exports = {
+  publicPath: '/up',
   configureWebpack: {
     resolve: {
       extensions: ['.js', '.vue', '.json'],

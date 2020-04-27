@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Vue from 'vue'
+axios.defaults.baseURL = 'https://119.23.32.24'
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
   // console.log(config)
@@ -28,16 +29,16 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-const getTypeListUrl = '/api/front/borrow/type_manage/get_type_list'
+const getTypeListUrl = '/up/api/front/borrow/type_manage/get_type_list'
 const getGoodsListByAssetsUrl = '/api/front/borrow/type_manage/get_goods_list_by_assets'
-const borrowGoodsUrl = '/api/front/borrow/goods_manage/borrow_goods'
-const returnGoodsUrl = '/api/front/borrow/goods_manage/return_goods'
-const receiveGoodsUrl = '/api/front/borrow/goods_manage/receive_goods_list'
+const borrowGoodsUrl = '/up/api/front/borrow/goods_manage/borrow_goods'
+const returnGoodsUrl = '/up/api/front/borrow/goods_manage/return_goods'
+const receiveGoodsUrl = '/up/api/front/borrow/goods_manage/receive_goods_list'
 const getPublishAnnounceUrl = '/api/front/borrow/announce_manage/get_publish_announce'
-const getGoodsInfoUrl = '/api/front/borrow/goods_manage/get_goods_info'
+const getGoodsInfoUrl = '/up/api/front/borrow/goods_manage/get_goods_info'
 const getGoodsLentInfoUrl = '/api/front/borrow/lent_info_manage/get_goods_lent_info'
-const getLentInfoUrl = '/api/front/borrow/lent_info_manage/get_lent_info'
-const loginUrl = '/api/front/borrow/ding_front/ding_login'
+const getLentInfoUrl = '/up/api/front/borrow/lent_info_manage/get_lent_info'
+const loginUrl = '/up/api/front/borrow/ding_front/ding_login'
 function getTypeList () {
   return axios.get(getTypeListUrl)
 }
