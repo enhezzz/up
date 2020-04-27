@@ -53,7 +53,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .list {
   height: 100%;
   .list-item {
@@ -61,7 +61,7 @@ export default {
     display: flex;
     width: 100%;
     align-items: center;
-    background: $assist-deep-blue;
+    background: rgb(0, 135 , 204);
     border-radius: 6px;
     border: 1px solid rgb(51, 51, 51);
     padding: 24px;
@@ -76,7 +76,11 @@ export default {
       background-size: cover;
       border-radius: 1vw;
       border: 0.3vw solid rgb(51, 51, 51);
-      @include bg-image("../../assets/defaultImg");
+      // @include bg-image("../../assets/defaultImg");
+      background-image: url("../../assets/defaultImg@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../../assets/defaultImg@3x.png");
+  };
       background-repeat: no-repeat;
     }
     .material-info {
@@ -117,7 +121,7 @@ export default {
         border: 0.3vw solid #333333;
         outline: none;
         &.borrow {
-          background: $master-light-orange;
+          background: rgb(255, 201, 31);
         }
         &.check {
           background: rgb(255, 255, 255);

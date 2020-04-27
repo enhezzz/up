@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang='less'>
   .search-container {
     display: flex;
     align-items: center;
@@ -59,11 +59,14 @@ export default {
     height: 9.6vw;
     border: 2px solid #333;
     border-radius: 6px;
-    background-color: $master-light-orange;
+    background-color: rgb(255, 201, 31);
     .search-icon {
       width: 4vw;
       height: 30px;
-      @include bg-image('../assets/common/icon_search');
+      background-image: url('../assets/common/icon_search@2x.png');
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url('../assets/common/icon_search@3x.png');
+  }
       background-size: contain;
       background-repeat: no-repeat;
       margin: 0 2.1333vw 0 4vw;
@@ -74,7 +77,7 @@ export default {
       outline: none;
       font-size: 3.4667vw;
       color: #333;
-      background-color: $master-light-orange;
+      background-color: rgb(255, 201, 31);
     }
   }
 </style>

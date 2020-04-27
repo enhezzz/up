@@ -7,7 +7,7 @@
 import { login } from './utils/request.js'
 export default {
   created () {
-    this._login()
+    // this._login()
   },
   methods: {
     _login () {
@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

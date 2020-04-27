@@ -57,7 +57,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .notification-box {
   position: absolute;
   width: 91%;

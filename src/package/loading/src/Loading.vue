@@ -19,7 +19,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 @keyframes bouncing-loader {
   to {
     opacity: 0.1;

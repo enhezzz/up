@@ -79,7 +79,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .book-detail {
   height: 100vh;
   display: flex;
@@ -88,7 +88,11 @@ export default {
     position: relative;
     font-size: 0;
     margin-bottom: 30px;
-    @include bg-image("../../assets/book/detail/bg_tsxq");
+    // @include bg-image("../../assets/book/detail/bg_tsxq");
+    background-image: url( "../../assets/book/detail/bg_tsxq@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../../assets/book/detail/bg_tsxq@3x.png");
+  }
     // background: url("../../assets/book/detail/bg_tsxq@3x.png") no-repeat;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -115,14 +119,14 @@ export default {
       .book-info {
         flex: 1;
         font-size: 30px;
-        color: $assist-grey;
+        color: rgb(51, 51, 51);
         font-weight: 600;
         padding-left: 20px;
         text-align: left;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        color: $assist-grey;
+        color: rgb(51, 51, 51);
       }
     }
   }
@@ -154,7 +158,7 @@ export default {
       display: flex;
       align-items: center;
       padding: 4vw 30px 4vw 0;
-      background: $assist-light-blue;
+      background: rgb(118, 209, 230);
       font-size: 4.6vw;
       border-radius: 1vw;
         border: 0.3vw solid rgb(51, 51, 51);
@@ -163,7 +167,7 @@ export default {
         width: 180px;
         font-size: 28px;
         text-align: center;
-        color: $assist-grey;
+        color: rgb(51, 51, 51);
         font-weight: 600;
       }
       .date {
@@ -181,7 +185,7 @@ export default {
           height: 42px;
           border-radius: 1vw;
           border: 0.3vw solid rgb(51, 51, 51);
-          background: $master-deep-orange;
+          background: rgb(252, 184, 20);
           margin-right: 20px;
         }
         .date-str {

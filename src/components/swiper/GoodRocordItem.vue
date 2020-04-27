@@ -32,14 +32,14 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .list {
   height: 100%;
   .list-item {
     text-align: left;
     display: flex;
     width: 100%;
-    background: $assist-deep-blue;
+    background: rgb(0, 135 , 204);
     border-radius: 6px;
     border: 1px solid rgb(51, 51, 51);
     padding: 24px;
@@ -84,9 +84,9 @@ export default {
             height: 28px;
             width: 28px;
             border-radius: 4px;
-            border: 1px solid $assist-light-blue;
+            border: 1px solid rgb(118, 209, 230);
             font-size: 22px;
-            color: $assist-light-blue;
+            color: rgb(118, 209, 230);
             line-height: 29px;
             margin-right: 19px;
           }

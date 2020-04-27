@@ -118,7 +118,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .about {
   display: flex;
   flex-direction: column;
@@ -127,7 +127,11 @@ export default {
     font-size: 0;
     position: relative;
     height: 180px;
-    @include bg-image("../assets/me/bg_wd_top");
+    // @include bg-image();
+    background-image: url("../assets/me/bg_wd_top@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/me/bg_wd_top@3x.png");
+  };
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -142,7 +146,7 @@ export default {
       text-align: left;
       // padding: 0 3vw;
       padding: 24px 0 24px 24px;
-      color: $assist-grey;
+      color: rgb(51, 51, 51);
       .item {
         &.name {
           // line-height: 11vw;
@@ -175,19 +179,31 @@ export default {
         width: 40px;
         margin-right: 16px;
         &.goods {
-          @include bg-image("../assets/me/icon_pencil");
+          // @include bg-image("../assets/me/icon_pencil");
+          background-image: url("../assets/me/icon_pencil@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/me/icon_pencil@3x.png");
+  };
           background-repeat: no-repeat;
           background-position: center;
           background-size: contain;
         }
         &.books {
-          @include bg-image("../assets/me/icon_book");
+          // @include bg-image("../assets/me/icon_book");
+          background-image: url("../assets/me/icon_book@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/me/icon_book@3x.png");
+  };
           background-repeat: no-repeat;
           background-position: center;
           background-size: contain;
         }
         &.umbrellas {
-          @include bg-image("../assets/me/icon_umbrella");
+          // @include bg-image("../assets/me/icon_umbrella");
+          background-image: url("../assets/me/icon_umbrella@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/me/icon_umbrella@3x.png");
+  };
           background-repeat: no-repeat;
           background-position: center;
           background-size: contain;

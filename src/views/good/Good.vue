@@ -306,7 +306,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .book {
   display: flex;
   flex-direction: column;
@@ -331,7 +331,7 @@ export default {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: rgba($color: #000000, $alpha: 0.6);
+    background: rgba( 0,0,0 , 0.6);
     display: flex;
     justify-content: center;
     align-items: center;

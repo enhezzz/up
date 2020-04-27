@@ -13,7 +13,7 @@ export default {
   name: 'Nothing'
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .nothing {
   width: 100%;
   height: 100%;
@@ -24,7 +24,10 @@ export default {
     width: 363px;
     height: 279px;
     margin: 150px auto 0;
-    @include bg-image("../assets/nothing");
+    background-image: url("../assets/nothing@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/nothing@3x.png");
+  }
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

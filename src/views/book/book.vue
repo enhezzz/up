@@ -264,7 +264,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .book {
   display: flex;
   flex-direction: column;
@@ -278,7 +278,7 @@ export default {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: rgba($color: #000000, $alpha: 0.6);
+    background: rgba( 0,0,0 , 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -312,7 +312,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $assist-grey;
+        color: rgb(51, 51, 51);
         font-size: 30px;
         border-bottom: 1px solid rgb(224, 224, 224);
       }
@@ -330,7 +330,7 @@ export default {
             border-right: 1px solid rgb(224, 224, 224);
           }
           &.borrow {
-            color: $assist-deep-blue;
+            color: rgb(0, 135 , 204);
           }
           &.cancel {
             color: rgb(153, 153, 153);

@@ -9,13 +9,13 @@
 <script>
 export default {}
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .swiper {
   display: flex;
   flex-direction: column;
 
   padding: 0 30px;
-  //   color: $master-deep-orange;
+  //   color: $rgb(252, 184, 20);
   .options {
     white-space: nowrap;
     overflow-x: scroll;
@@ -27,7 +27,7 @@ export default {}
       height: 49px;
       font-size: 30px;
       margin: 0px 41px;
-      color: $assist-grey;
+      color: rgb(51, 51, 51);
       font-weight: 600;
       overflow: hidden;
       // line-height: 36px;
@@ -36,7 +36,7 @@ export default {}
           display: block;
           position: absolute;
           height: 4px;
-          background:$assist-deep-blue;
+          background:rgb(0, 135 , 204);
           width: 80%;
           left: 100%;
           // transform: translateX(-200%);
@@ -85,7 +85,7 @@ export default {}
             text-align: left;
             display: flex;
             width: 100%;
-            background: $assist-deep-blue;
+            background: rgb(0, 135 , 204);
             border-radius: 1vw;
             border: 0.4vw solid rgb(51, 51, 51);
             padding: 24px;
@@ -138,7 +138,7 @@ export default {}
                 border: 0.3vw solid #333333;
                 outline: none;
                 &.borrow {
-                  background: $master-light-orange;
+                  background: rgb(255, 201, 31);
                 }
                 &.check {
                   background: rgb(255, 255, 255);

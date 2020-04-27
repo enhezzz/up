@@ -105,7 +105,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .list {
   height: 100%;
   .list-item {
@@ -113,7 +113,7 @@ export default {
     display: flex;
     align-items: center;
     width: 100%;
-    background: $assist-deep-blue;
+    background: rgb(0, 135 , 204);
     border-radius: 1vw;
     border: 0.4vw solid rgb(51, 51, 51);
     padding: 24px;
@@ -128,7 +128,11 @@ export default {
       background-size: cover;
       border-radius: 6px;
       border: 1px solid rgb(51, 51, 51);
-      @include bg-image("../../assets/defaultImg");
+      // @include bg-image("../../assets/defaultImg");
+      background-image: url("../../assets/defaultImg@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../../assets/defaultImg@3x.png");
+  };
       background-repeat: no-repeat;
     }
     .material-info {
@@ -170,11 +174,19 @@ export default {
         border-radius: 50%;
         vertical-align: middle;
         &.sub {
-          @include bg-image("../../assets/good/icon_js");
+          // @include bg-image("../../assets/good/icon_js");
+          background-image: url("../../assets/good/icon_js@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../../assets/good/icon_js@3x.png");
+  };
           margin-right: 23px;
         }
         &.add {
-          @include bg-image("../../assets/good/icon_tj");
+          // @include bg-image("../../assets/good/icon_tj");
+          background-image: url("../../assets/good/icon_tj@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../../assets/good/icon_tj@3x.png");
+  };
           margin-left: 23px;
           position: relative;
           &/deep/ .ballParent {
@@ -188,7 +200,7 @@ export default {
               width: 100%;
               height: 100%;
               border-radius: 50%;
-              background: $master-deep-orange;
+              background: rgb(252, 184, 20);
               position: absolute;
               transform: translateY(0) scale(1);
               transition: all ease-in 0.4s;

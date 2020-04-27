@@ -116,7 +116,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .cart {
   width: 100%;
   .main {
@@ -125,13 +125,17 @@ export default {
     display: flex;
     z-index: 66;
     align-items: center;
-    border-top: 1px solid $assist-grey;
-    color: $assist-grey;
+    border-top: 1px solid rgb(51, 51, 51);
+    color: rgb(51, 51, 51);;
     background: #fff;
     .cart-icon {
       width: 70px;
       height: 70px;
-      @include bg-image("../assets/good/icon_gwc");
+      // @include bg-image("../assets/good/icon_gwc");
+      background-image: url("../assets/good/icon_gwc@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/good/icon_gwc@2x.png");
+  }
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -151,7 +155,7 @@ export default {
       justify-content: center;
       width: 180px;
       height: 70px;
-      background: $master-light-orange;
+      background: rgb(255, 201, 31);
       border-radius: 1vw;
       border: 0.4vw solid rgb(51, 51, 51);
       margin-right: 30px;
@@ -184,7 +188,7 @@ export default {
           border-radius: 2px;
           width: 4px;
           height: 20px;
-          background: $assist-grey;
+          background: rgb(51, 51, 51);
         }
       }
       .clear {
@@ -194,7 +198,11 @@ export default {
         .clear-icon {
           width: 30px;
           height: 30px;
-          @include bg-image("../assets/good/icon_qk");
+          // @include bg-image("../assets/good/icon_qk");
+          background-image: url("../assets/good/icon_qk@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/good/icon_qk@2x.png");
+  }
           background-size: contain;
           background-position: center;
           background-repeat: no-repeat;
@@ -239,11 +247,19 @@ export default {
             border-radius: 50%;
             vertical-align: middle;
             &.sub {
-              @include bg-image("../assets/good/icon_js");
+              // @include bg-image("../assets/good/icon_js");
+              background-image: url("../assets/good/icon_js@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/good/icon_js@2x.png");
+  }
               margin-right: 23px;
             }
             &.add {
-              @include bg-image("../assets/good/icon_tj");
+              // @include bg-image("../assets/good/icon_tj");
+              background-image: url("../assets/good/icon_tj@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/good/icon_tj@2x.png");
+  }
               margin-left: 23px;
             }
           }
@@ -252,7 +268,7 @@ export default {
             vertical-align: middle;
             font-size: 30px;
             line-height: 30px;
-            color: $assist-grey;
+            color: rgb(51, 51, 51);
           }
         }
       }

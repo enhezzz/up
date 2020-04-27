@@ -23,7 +23,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .notification {
   position: fixed;
   z-index: 6666;
@@ -42,7 +42,7 @@ export default {
   padding: 30px;
   box-sizing: border-box;
   border-radius: 60px;
-  background: rgba($color: #000000, $alpha: 0.502);
+  background: rgba(255, 255, 255, 0.502);
   font-size: 28px;
   color: #fff;
   // white-space: nowrap;

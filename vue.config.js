@@ -6,7 +6,7 @@ function addStyleResource (rule) {
     .loader('style-resources-loader')
     .options({
       patterns: [
-        resolve(__dirname, './src/styles/index.scss')
+        resolve(__dirname, './src/styles/index.less')
       ]
     })
 }
@@ -25,17 +25,17 @@ module.exports = {
   },
   chainWebpack: config => {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
+    types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
   },
   devServer: {
     // open: process.platform === 'darwin',
-    host: '0.0.0.0',
+    // host: '0.0.0.0',
     port: 8080,
     https: false,
     hotOnly: false,
     proxy: {
       '/api': {
-        target: 'http://192.168.13.72:8878'
+        target: 'http://0.0.0.0'
         // target: 'http://192.168.13.43:3000'
       }
     } // 设置代理

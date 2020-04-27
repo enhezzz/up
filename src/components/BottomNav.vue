@@ -7,13 +7,13 @@
     >
       <span :class="['home']">首页</span>
     </router-link>
-    <router-link
+    <!-- <router-link
       class="nav-item"
       to="/me"
       tag="div"
     >
       <span :class="['me']">我的</span>
-    </router-link>
+    </router-link> -->
   </div>
 </template>
 <script>
@@ -25,7 +25,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .bottom-nav {
   position: relative;
   z-index: 1;
@@ -44,8 +44,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $master-deep-orange;
-    border: 1px solid $assist-grey;
+    background: rgb(252, 184, 20);
+    border: 1px solid rgb(51, 51, 51);
     border-radius: 6px;
     color: #fff;
     font-size: 30px;
@@ -54,18 +54,26 @@ export default {
     font-weight: 900;
     &.router-link-exact-active {
       .home {
-        color: $assist-light-blue;
+        color: rgb(118, 209, 230);
 
           &::before {
-            @include bg-image('../assets/common/icon_home_sel');
+            // @include bg-image('../assets/common/icon_home_sel');
+background-image: url('../assets/common/icon_home_sel@2x.png');
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url('../assets/common/icon_home_sel@3x.png');
+  }
           }
 
       }
       .me {
-        color: $assist-light-blue;
+        color: rgb(118, 209, 230);
 
           &::before {
-            @include bg-image('../assets/common/icon_wd_sel');
+            // @include bg-image('../assets/common/icon_wd_sel');
+            background-image: url('../assets/common/icon_wd_sel@2x.png');
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url('../assets/common/icon_wd_sel@3x.png');
+  }
           }
         }
 
@@ -84,23 +92,39 @@ export default {
       }
       &.home {
         &::before {
-          @include bg-image('../assets/common/icon_home');
+          // @include bg-image('../assets/common/icon_home');
+          background-image: url("../assets/common/icon_home@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/common/icon_home@3x.png");
+  }
         }
         &.active {
-          color: $assist-deep-blue;
+          color: rgb(0, 135 , 204);
           &::before {
-            @include bg-image('../assets/common/icon_home_sel');
+            // @include bg-image('../assets/common/icon_home_sel');
+            background-image: url("../assets/common/icon_home_sel@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/common/icon_home_sel@3x.png");
+  }
           }
         }
       }
       &.me {
         &::before {
-          @include bg-image('../assets/common/icon_wd');
+          // @include bg-image('../assets/common/icon_wd');
+          background-image: url("../assets/common/icon_wd@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/common/icon_wd@3x.png");
+  }
         }
         &.active {
-          color: $assist-deep-blue;
+          color: rgb(0, 135 , 204);
           &::before {
-            @include bg-image('../assets/common/icon_wd_sel');
+            // @include bg-image('../assets/common/icon_wd_sel');
+            background-image: url("../assets/common/icon_wd_sel@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/common/icon_wd_sel@3x.png");
+  }
           }
         }
       }

@@ -7,7 +7,7 @@ import Notification from './package/notification/index'
 import Loading from './package/loading/index'
 import './registerServiceWorker'
 
-import './styles/variable.scss'
+import './styles/variable.less'
 
 Vue.config.productionTip = false
 // Vue.use(Toast)

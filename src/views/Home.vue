@@ -62,7 +62,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .home {
   display: flex;
   flex-direction: column;
@@ -75,7 +75,11 @@ export default {
     }
     text-align: left;
     flex: 1;
-    @include bg-image("../assets/index/bg_home");
+    // @include bg-image("../assets/index/bg_home");
+    background-image: url("../assets/index/bg_home@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/index/bg_home@3x.png");
+  };
     // background: #f5f5f5 url("../assets/index/bg_home@3x.png") center no-repeat;
     background-position: center;
     background-repeat: no-repeat;
@@ -147,17 +151,29 @@ export default {
       }
       &.material {
         &::before {
-          @include bg-image('../assets/index/pen');
+          // @include bg-image('../assets/index/pen');
+          background-image: url("../assets/index/pen@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/index/pen@3x.png");
+  }
         }
       }
       &.book {
         &::before {
-          @include bg-image('../assets/index/book');
+          // @include bg-image('../assets/index/book');
+          background-image: url("../assets/index/book@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/index/book@3x.png");
+  }
         }
       }
       &.umbrella {
         &::before {
-          @include bg-image('../assets/index/umbrella');
+          // @include bg-image('../assets/index/umbrella');
+          background-image: url("../assets/index/umbrella@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url("../assets/index/umbrella@3x.png");
+  }
         }
         margin-bottom: .7vh
       }

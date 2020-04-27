@@ -88,18 +88,18 @@ export default {
 }
 </script>
 
-<style lang="scss">
-$content-font-size: 14px;
-$close-btn-size: 10px;
-$position-offset: 8px;
-$toast-width: 250px;
-$toast-height: 80px;
-$border-radius-middle: 4px;
-@mixin toast-transition-effect($val) {
-  transition: opacity $val, transform $val, left $val, right $val, top $val,
-    bottom $val;
+<style lang="less">
+@content-font-size: 14px;
+@close-btn-size: 10px;
+@position-offset: 8px;
+@toast-width: 250px;
+@toast-height: 80px;
+@border-radius-middle: 4px;
+.toast-transition-effect(@val) {
+  transition: opacity @val, transform @val, left @val, right @val, top @val,
+    bottom @val;
 }
-@mixin base-toast-style() {
+.base-toast-style() {
   position: fixed;
   display: flex;
   justify-content: flex-start;
@@ -113,7 +113,7 @@ $border-radius-middle: 4px;
   box-shadow: 0 2px 12px #a8abaf;
   background-color: #fff;
   user-select: none;
-  @include toast-transition-effect(0.3s);
+  .toast-transition-effect(0.3s);
   .toast-content {
     margin-left: 4px;
     max-width: $toast-width;
@@ -136,7 +136,7 @@ $border-radius-middle: 4px;
     cursor: pointer;
   }
 }
-@mixin toast-type() {
+.toast-type() {
   .toast-type {
     margin-right: 12px;
     font-size: 14px;
@@ -149,14 +149,14 @@ $border-radius-middle: 4px;
   right: $position-offset;
 }
 .toast-normal {
-  @include base-toast-style();
+  .base-toast-style();
 }
 .toast-info,
 .toast-warn,
 .toast-success,
 .toast-error {
-  @include base-toast-style();
-  @include toast-type();
+  .base-toast-style();
+  .toast-type();
 }
 .toast-success {
   color: blue;
