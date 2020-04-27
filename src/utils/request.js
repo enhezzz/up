@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Vue from 'vue'
-axios.defaults.baseURL = 'http://119.23.32.24/'
+axios.defaults.baseURL = 'https://119.23.32.24/'
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
   // console.log(config)
