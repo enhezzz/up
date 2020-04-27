@@ -30,11 +30,11 @@ axios.interceptors.response.use(function (response) {
 })
 
 const getTypeListUrl = '/up/api/front/borrow/type_manage/get_type_list'
-const getGoodsListByAssetsUrl = '/api/front/borrow/type_manage/get_goods_list_by_assets'
+const getGoodsListByAssetsUrl = '/up/api/front/borrow/type_manage/get_goods_list_by_assets'
 const borrowGoodsUrl = '/up/api/front/borrow/goods_manage/borrow_goods'
 const returnGoodsUrl = '/up/api/front/borrow/goods_manage/return_goods'
 const receiveGoodsUrl = '/up/api/front/borrow/goods_manage/receive_goods_list'
-const getPublishAnnounceUrl = '/api/front/borrow/announce_manage/get_publish_announce'
+const getPublishAnnounceUrl = '/up/api/front/borrow/announce_manage/get_publish_announce'
 const getGoodsInfoUrl = '/up/api/front/borrow/goods_manage/get_goods_info'
 const getGoodsLentInfoUrl = '/api/front/borrow/lent_info_manage/get_goods_lent_info'
 const getLentInfoUrl = '/up/api/front/borrow/lent_info_manage/get_lent_info'
