@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Vue from 'vue'
-axios.defaults.baseURL = 'https://119.23.32.24'
+axios.defaults.baseURL = 'http://119.23.32.24'
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
   // console.log(config)
@@ -36,7 +36,7 @@ const returnGoodsUrl = '/up/api/front/borrow/goods_manage/return_goods'
 const receiveGoodsUrl = '/up/api/front/borrow/goods_manage/receive_goods_list'
 const getPublishAnnounceUrl = '/up/api/front/borrow/announce_manage/get_publish_announce'
 const getGoodsInfoUrl = '/up/api/front/borrow/goods_manage/get_goods_info'
-const getGoodsLentInfoUrl = '/api/front/borrow/lent_info_manage/get_goods_lent_info'
+const getGoodsLentInfoUrl = '/up/api/front/borrow/lent_info_manage/get_goods_lent_info'
 const getLentInfoUrl = '/up/api/front/borrow/lent_info_manage/get_lent_info'
 const loginUrl = '/up/api/front/borrow/ding_front/ding_login'
 function getTypeList () {
